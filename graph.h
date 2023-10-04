@@ -42,9 +42,10 @@
 #include "net.h"
 
 
-#define NODE_NAME_SIZE   16
-#define IF_NAME_SIZE     16
+#define NODE_NAME_SIZE      16
+#define IF_NAME_SIZE        16
 #define MAX_INTF_PER_NODE   10
+#define TOPOLOGY_NAME_SIZE  32
 
 /*Forward Declarations*/
 typedef struct node_ node_t;
@@ -77,7 +78,7 @@ GLTHREAD_TO_STRUCT(graph_glue_to_node, node_t, graph_glue);
 
 typedef struct graph_{
 
-    char topology_name[32];
+    char topology_name[TOPOLOGY_NAME_SIZE];
     glthread_t node_list; 
 } graph_t;
 
