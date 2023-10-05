@@ -53,3 +53,6 @@ dkms.conf
 
 # IDE
 .vscode
+
+# history
+CMD_HIST_RECORD_FILE.txt
