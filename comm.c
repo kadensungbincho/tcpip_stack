@@ -76,7 +76,7 @@ init_udp_socket(node_t *node){
     
     node->udp_port_number = get_next_udp_port_number();
      
-    int udp_sock_fd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP );
+    int udp_sock_fd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
     
     if(udp_sock_fd == -1){
         printf("Socket Creation Failed for node %s\n", node->node_name);
@@ -130,7 +130,7 @@ _network_start_pkt_receiver_thread(void *arg){
     
     graph_t *topo = (void *)arg;
 
-    int addr_len = sizeof(struct sockaddr);
+    socklen_t addr_len = sizeof(struct sockaddr);
 
     FD_ZERO(&active_sock_fd_set);
     FD_ZERO(&backup_sock_fd_set);

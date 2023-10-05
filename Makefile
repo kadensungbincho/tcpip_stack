@@ -13,7 +13,7 @@ OBJS=gluethread/glthread.o \
 		  utils.o
 
 test.exe:testapp.o ${OBJS} CommandParser/libcli.a
-	${CC} ${CFLAGS} testapp.o ${OBJS} -o test.exe ${LIBS}
+	${CC} ${CFLAGS} testapp.o ${OBJS} -o test.exe ${LIBS} -lrt
 
 testapp.o:testapp.c
 	${CC} ${CFLAGS} -c testapp.c -o testapp.o
@@ -50,7 +50,7 @@ CommandParser/libcli.a:
 clean:
 	rm *.o
 	rm gluethread/glthread.o
-	rm *exe
+	rm *.exe
 	rm Layer2/*.o
 	rm Layer3/*.o
 
