@@ -68,7 +68,7 @@ validate_node_extistence(char *node_name){
 
 
 /*Generic Topology Commands*/
-static int
+static void
 show_nw_topology_handler(param_t *param, ser_buff_t *tlv_buf, op_mode enable_or_disable){
 
     int CMDCODE = -1;
@@ -92,7 +92,7 @@ show_nw_topology_handler(param_t *param, ser_buff_t *tlv_buf, op_mode enable_or_
 extern void
 layer3_ping_fn(node_t *node, char *dst_ip_addr);
 
-static int
+static void
 ping_handler(param_t *param, ser_buff_t *tlv_buf, op_mode enable_or_disable){
 
     int CMDCODE;

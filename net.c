@@ -39,7 +39,7 @@
 void
 interface_assign_mac_address(interface_t *interface){
 
-    memset(IF_MAC(interface), 0, 48);
+    memset(IF_MAC(interface), 0, MAC_ADDR_SIZE);
     strcpy(IF_MAC(interface), interface->att_node->node_name);
     strcat(IF_MAC(interface), interface->if_name);
 }
@@ -61,8 +61,8 @@ bool_t node_set_loopback_address(node_t *node, char *ip_addr){
         assert(0); /*You must enable L3 routing on device first*/
 
     node->node_nw_prop.is_lb_addr_config = TRUE;
-    strncpy(NODE_LO_ADDR(node), ip_addr, 16);
-    NODE_LO_ADDR(node)[16] = '\0';
+    strncpy(NODE_LO_ADDR(node), ip_addr, IP_ADDR_SIZE);
+    NODE_LO_ADDR(node)[IP_ADDR_SIZE-1] = '\0';
     
     return TRUE;
 }
@@ -73,8 +73,8 @@ bool_t node_set_intf_ip_address(node_t *node, char *local_if,
     interface_t *interface = get_node_if_by_name(node, local_if);
     if(!interface) assert(0);
 
-    strncpy(IF_IP(interface), ip_addr, 16);
-    IF_IP(interface)[16] = '\0';
+    strncpy(IF_IP(interface), ip_addr, IP_ADDR_SIZE);
+    IF_IP(interface)[IP_ADDR_SIZE-1] = '\0';
     interface->intf_nw_props.mask = mask; 
     interface->intf_nw_props.is_ipadd_config = TRUE;
     return TRUE;
